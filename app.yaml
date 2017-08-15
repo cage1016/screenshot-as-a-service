@@ -1,0 +1,16 @@
+runtime: custom
+env: flex
+service: screenshot
+
+resources:
+  cpu: 1
+  memory_gb: 1
+  disk_size_gb: 10
+
+manual_scaling:
+  instances: 1
+
+handlers:
+
+- url: /.*
+  script: app.js

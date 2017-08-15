@@ -1,4 +1,4 @@
-# NodeJS/PhantomJS Screenshot-As-A-Service
+# NodeJS/PhantomJS Screenshot-As-A-Service for waldo-gcp
 
 Fork of: [fzaninotto/screenshot-as-a-service](https://github.com/fzaninotto/screenshot-as-a-service)
 
@@ -6,12 +6,12 @@ Fork of: [fzaninotto/screenshot-as-a-service](https://github.com/fzaninotto/scre
 ## Getting Started
 
 ```sh
-$ docker run -d -p 3000:3000 cage1016/screenshot-as-a-service
+$ docker run -d -p 8080:8080 cage1016/screenshot-as-a-service
 ```
 
 ### Usage
 
-> http://localhost:3000
+> http://localhost:8080
 
 ![](./screenshot-1.png)
 

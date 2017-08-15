@@ -9,9 +9,9 @@ module.exports = function(app, useCors) {
   var fileCleanerService = app.settings.fileCleanerService;
 
   // routes
-  app.get('/', function(req, res, next) {
+  app.get('/screenshot/', function (req, res, next) {
     if (!req.param('url', false)) {
-      return res.redirect('/usage.html');
+      return res.redirect('/screenshot/usage.html');
     }
 
     var url = utils.url(req.param('url'));
@@ -40,9 +40,23 @@ module.exports = function(app, useCors) {
     processImageUsingRasterizer(options, filePath, res, callbackUrl, function(err) { if(err) next(err); });
   });
 
-  app.get('*', function(req, res, next) {
+  app.get('/screenshot/_ah/health', function (req, res) {
+    res.set('Content-Type', 'text/plain');
+    res.send(200, 'ok');
+  });
+  app.get('/screenshot/_ah/start', function (req, res) {
+    res.set('Content-Type', 'text/plain');
+    res.send(200, 'ok');
+  });
+  app.get('/screenshot/_ah/stop', function (req, res) {
+    res.set('Content-Type', 'text/plain');
+    res.send(200, 'ok');
+    process.exit();
+  });
+
+  app.get('/screenshot/*', function (req, res, next) {
     // for backwards compatibility, try redirecting to the main route if the request looks like /www.google.com
-    res.redirect('/?url=' + req.url.substring(1));
+    res.redirect('/screenshot/?url=' + req.url.substring(1));
   });
 
   // bits of logic

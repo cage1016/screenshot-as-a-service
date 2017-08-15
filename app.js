@@ -21,8 +21,8 @@ process.on('SIGINT', function () {
 
 // web service
 var app = express();
-app.configure(function(){
-  app.use(express.static(__dirname + '/public'))
+app.configure(function () {
+  app.use("/screenshot", express.static(__dirname + '/public'))
   app.use(app.router);
   app.set('rasterizerService', new RasterizerService(config.rasterizer).startService());
   app.set('fileCleanerService', new FileCleanerService(config.cache.lifetime));
