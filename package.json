@@ -2,11 +2,15 @@
   "name": "screenshot-as-a-service",
   "description": "Website screenshot service powered by node.js and phantomjs",
   "version": "1.1.0",
-  "repository": "https://github.com/fzaninotto/screenshot-as-a-service",
+  "repository": "https://github.com/cage1016/screenshot-as-a-service",
   "engines": {
     "node": ">=0.8.4"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
+    "phantomjs": "^1.9.16",
     "express": "3.x",
     "config": "0.4.15",
     "request": "2.9.153"
